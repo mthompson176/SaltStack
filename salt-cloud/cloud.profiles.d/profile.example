@@ -1,0 +1,42 @@
+ubuntu1804template:
+  # Host Info
+  provider: LostCause
+  clonefrom: <vm or template to clone from>
+  template: <Specify if the new virtual machine is a template>
+  power_on: true
+  datacenter: <For clone from a vm/template, the new vm will be added to same folder unless specified>
+  folder: <Optional, if >
+  resourcepool: <Optional, if cloning from a template, this or cluster are required>
+  cluster: <Optional, if cloning from a template, this or resourcepool are required>  
+  host: <Name of host, see https://docs.saltstack.com/en/latest/topics/cloud/vmware.html for more info>
+
+  # VM General Config
+  minion:
+    master: <master name>
+  ssh_username: root
+  password: <root password>
+  domain: theforce.lan
+  dns_servers:
+    - 8.8.8.8
+    - 8.8.4.4
+
+  # VM Hardware Config
+  num_cpus: <eg: 2>
+  cores_per_socket: <eg: 2>
+  memory: <eg: 2GB>
+  datastore: <eg: raid10-datastore>
+
+  # VM Device Configuration
+  devices:
+    Hard disk 1:
+      size: <eg: 20>
+      controller: <eg: SCSI controller 2>
+      datastore: <set to datastore, can be different than datastore in VM Hardware Config section>
+  network:
+    Network adapter 1:
+      name: <port group name>
+      switch_type: <either standard or distributed>
+      ip: 10.0.0.100
+      gateway: [10.0.0.1]
+      subnet_mask: 255.255.255.0
+      domain: theforce.lan

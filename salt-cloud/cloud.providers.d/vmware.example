@@ -1,0 +1,7 @@
+Example_Provider:
+  driver: vmware
+  user: 'Example@theforce.lan'
+  password: 'P@ssW0rd1'
+  url: 'vcenter.theforce.lan'
+  protocol: 'https'
+  port: 443

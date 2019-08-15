@@ -1,1 +1,0 @@
-/etc/salt/cloud.providers.d/
